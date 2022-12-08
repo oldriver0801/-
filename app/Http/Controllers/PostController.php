@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
-
-public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+class PostController extends Controller
 {
-    return $post->get();//$postの中身を戻り値にする。
+    public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+    {
+        return view('posts/index')->with(['posts' => $post->get()]);//$postの中身を戻り値にする。
+    }
 }
 
 ?>
