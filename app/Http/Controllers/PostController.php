@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Post;
+use App\Models\Post\PostRequest;
 
 class PostController extends Controller
 {
     public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
     {
+        //dd($post->get());
+        //return view('posts/index')->with(['tests'=>$post->get()]);
         return view('posts/index')->with(['posts'=>$post->getPaginateByLimit(1)]);
     }
     
