@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         //dd($post->get());
         //return view('posts/index')->with(['tests'=>$post->get()]);
-        return view('posts/index')->with(['posts'=>$post->getPaginateByLimit(1)]);
+        return view('posts/index')->with(['posts'=>$post->getPaginateByLimit(5)]);
     }
     
     public function show(Post $post)
@@ -31,6 +31,11 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
+    }
+    
+    public function edit(Post $post)
+    {
+        return view('posts/edit')->with(['post'=>$post]);
     }
 }
 
