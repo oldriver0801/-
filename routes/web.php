@@ -20,5 +20,5 @@ Route::get('/posts/{post}', [PostController::class ,'show']);
 //{ }の中には任意の数字や文字列が入る
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
-
+Route::put('/posts/{post}', [PostController::class, 'update']);
 ?>
