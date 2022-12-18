@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <form action="{{ $post->id }}" method="POST">
+        <form action="/posts/{{ $post->id }}" method="POST">
             @csrf
             @method('PUT')
             <div class="title">
@@ -22,9 +22,9 @@
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ $post->body }}</textarea>
                 <p class='body__error' style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            <input type="submit" value="update"/>
+            <input type="submit" value="update">
         </form>
-        <div class="footer">
+        <div class='footer'>
             <a href="/posts/{{ $post->id }}">戻る</a>
         </div>
     </body>
