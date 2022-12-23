@@ -40,6 +40,7 @@
                     }
                 }
             </script>
+             <p>ログインユーザー {{ Auth::user()->name }}</p>
     </body>
 </html>
 </x-app-layout>
